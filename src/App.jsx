@@ -6,7 +6,7 @@ import "./App.css";
 const questions = [
     {
         question: "What is the capital of india?",
-        choices: ["delhi", "jaipur", "haridwar", "chennai"],
+        choices: ["delhi", "jaipur", "chennai", "nepal"],
         correctAnswer: "delhi",
     },
     {
@@ -21,7 +21,6 @@ function App() {
     const [answers, setAnswers] = useState([]);
     const [score, setScore] = useState(0);
     const [showResults, setShowResults] = useState(false);
-    const [timer, setTimer] = useState(30);
 
     const handleAnswer = (selectedAnswer) => {
         if (selectedAnswer !== null) {
@@ -59,7 +58,7 @@ function App() {
         setScore(0);
         setShowResults(false);
         setAnswers([]);
-        setTimer(30);
+        
     };
 
     return (
@@ -74,6 +73,10 @@ function App() {
                 />
             ) : (
                 <>
+                    <ProgressBar
+                        current={currentQuestionIndex + 1}
+                        total={questions.length}
+                    />
                     <Question
                         questions={questions}
                         currentQuestionIndex={currentQuestionIndex}
