@@ -62,30 +62,24 @@ function App() {
     };
 
     return (
-        <div className="App p-6 bg-gray-100 min-h-screen flex items-center justify-center">
-            {showResults ? (
-                <Results
-                    score={score}
-                    totalQuestions={questions.length}
-                    answers={answers}
-                    questions={questions}
-                    onRestart={handleRestart}
-                />
-            ) : (
-                <>
-                    <ProgressBar
-                        current={currentQuestionIndex + 1}
-                        total={questions.length}
-                    />
-                    <Question
-                        questions={questions}
-                        currentQuestionIndex={currentQuestionIndex}
-                        handleAnswer={handleAnswer}
-                    />
-                </>
-            )}
-        </div>
-    );
+      <div className="App p-6 bg-gray-100 min-h-screen flex items-center justify-center">
+          {showResults ? (
+              <Results
+                  score={score}
+                  totalQuestions={questions.length}
+                  answers={answers}
+                  questions={questions}
+                  onRestart={handleRestart}
+              />
+          ) : (
+              <Question
+                  questions={questions}
+                  currentQuestionIndex={currentQuestionIndex}
+                  handleAnswer={handleAnswer}
+              />
+          )}
+      </div>
+  );
 }
 
 export default App;
